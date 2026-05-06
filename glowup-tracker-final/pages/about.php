@@ -55,11 +55,11 @@
             <h3>Ayesha Zaheed</h3>
             <p>Backend Developer</p>
         </div>
-        <div class="profile-card" onclick="showProfile('Eman Iftikhar Ahmed','Backend Developer')">
-            <div class="avatar">E</div>
-            <h3>Eman Iftikhar Ahmed</h3>
-            <p>Backend Developer</p>
-        </div>
+        <div class="profile-card" onclick="window.open('../eman-portfolio.html', '_blank')">
+    <div class="avatar">E</div>
+    <h3>Eman Iftikhar Ahmed</h3>
+    <p>Backend Developer</p>
+</div>
         <div class="profile-card" onclick="showProfile('Syeda Areeba Naqvi','Frontend Developer')">
             <div class="avatar">S</div>
             <h3>Syeda Areeba Naqvi</h3>
@@ -82,4 +82,3 @@ function showProfile(name, role) {
 </script>
 </body>
 </html>
-
