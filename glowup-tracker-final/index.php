@@ -22,6 +22,41 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        body.dark-mode .welcome-text {
+            color: #4caf50;
+        }
+
+        body.dark-mode .arrow-down {
+            color: #4caf50;
+        }
+
+        body.dark-mode .click-text {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .start-button {
+            background: #4caf50;
+        }
+
+        body.dark-mode .start-button:hover {
+            background: #2e7d32;
+        }
+
+        body.dark-mode .circle {
+            background: rgba(76, 175, 80, 0.05);
+        }
+
+        body.dark-mode .dark-toggle {
+            background: rgba(255,255,255,0.2);
+            color: white;
         }
 
         /* Background Circles */
@@ -115,6 +150,7 @@
             margin-bottom: 3rem;
             animation: fadeInUp 0.8s ease;
             text-shadow: 2px 2px 10px rgba(46, 125, 50, 0.2);
+            transition: color 0.3s ease;
         }
 
         /* Arrow (pointing down) */
@@ -124,6 +160,7 @@
             animation: bounce 1.5s infinite;
             margin-bottom: 1rem;
             display: inline-block;
+            transition: color 0.3s ease;
         }
 
         .arrow-down i {
@@ -137,6 +174,7 @@
             margin-bottom: 1.5rem;
             font-weight: 500;
             animation: fadeIn 1s ease;
+            transition: color 0.3s ease;
         }
 
         /* Start Button */
@@ -164,6 +202,32 @@
 
         .start-button:active {
             transform: scale(0.98);
+        }
+
+        /* Dark Mode Toggle Button */
+        .dark-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2e7d32;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .dark-toggle:hover {
+            transform: scale(1.1);
+            background: #1b5e20;
         }
 
         /* Fade out animation for page transition */
@@ -223,6 +287,13 @@
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
+            .dark-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -242,7 +313,7 @@
             Welcome
         </div>
 
-        <!-- Arrow pointing down (not clickable, just pointing) -->
+        <!-- Arrow pointing down -->
         <div class="arrow-down">
             <i class="fas fa-arrow-down"></i>
         </div>
@@ -258,12 +329,36 @@
         </button>
     </div>
 
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <script>
         function goToHome() {
             document.body.classList.add('fade-out');
             setTimeout(function() {
                 window.location.href = 'home.php';
             }, 500);
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('welcomeDarkMode', isDark);
+            const btn = document.querySelector('.dark-toggle i');
+            if(isDark) {
+                btn.className = 'fas fa-sun';
+            } else {
+                btn.className = 'fas fa-moon';
+            }
+        }
+
+        // Load saved dark mode
+        const savedDark = localStorage.getItem('welcomeDarkMode');
+        if(savedDark === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-toggle i').className = 'fas fa-sun';
         }
     </script>
 
