@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ayesha Zaheed | Web Developer + Graphic Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+             margin: 0; 
+             padding: 0; 
+             box-sizing: border-box; 
+            }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #ffffff; 
+            color: #1f2937; 
+            line-height: 1.5; 
+            scroll-behavior: smooth; 
+        }
+
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
+
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            padding: 20px 0; 
+            border-bottom: 1px solid #eef2f6; 
+        }
+
+        .logo { 
+            font-size: 1.8rem;
+             font-weight: 800;
+              background: linear-gradient(135deg, #4F46E5, #9333EA);
+               -webkit-background-clip: text;
+                background-clip: text;
+                 color: transparent; 
+                }
+
+        .nav-links {
+             display: flex; 
+             gap: 32px; 
+             flex-wrap: wrap; 
+            }
+
+        .nav-links a { 
+            text-decoration: none; 
+            font-weight: 500; 
+            color: #1f2937; 
+            transition: color 0.2s; 
+        }
+
+        .nav-links a:hover {
+             color: #4F46E5; 
+            }
+
+        .btn-primary { 
+            display: inline-block; 
+            background: linear-gradient(95deg, #4F46E5, #7C3AED); 
+            color: white; 
+            font-weight: 600;
+            padding: 12px 28px; 
+            border-radius: 40px; 
+            text-decoration: none; 
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2); 
+            transition: all 0.25s ease; 
+            border: none; 
+            cursor: pointer; 
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(79, 70, 229, 0.25); 
+        }
+
+        .hero { 
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+            padding: 60px 0 40px; 
+            }
+
+        .hero-content { 
+            flex: 1; 
+        }
+
+        .hero-badge { 
+            background: #f3e8ff; 
+            color: #6d28d9; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            display: inline-block; 
+            padding: 6px 14px; 
+            border-radius: 40px; 
+            margin-bottom: 20px; 
+        }
+
+        .hero-content h1 { 
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            line-height: 1.2; 
+            margin-bottom: 16px; 
+        }
+
+        .hero-content h1 span { 
+            background: linear-gradient(135deg, #4F46E5, #C026D3); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            color: transparent; 
+        }
+
+        .hero-tagline { 
+            font-size: 1.2rem; 
+            color: #4b5563; 
+            margin-bottom: 24px; 
+            border-left: 3px solid #8b5cf6; 
+            padding-left: 20px;
+        }
+
+        .avatar-circle { 
+            background: linear-gradient(145deg, #f0f4ff, #e9eaff); 
+            width: 280px; 
+            height: 280px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .avatar-circle i { 
+            font-size: 130px; 
+            color: #4F46E5; 
+        }
+
+        .stats-row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            gap: 24px; 
+            background: #f8fafc; 
+            border-radius: 56px; 
+            padding: 32px 40px;
+            margin: 40px 0 60px; 
+        }
+
+        .stat-item { 
+            text-align: center; 
+            flex: 1; 
+        }
+
+        .stat-number { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+        }
+
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 48px; 
+        }
+
+        .section-header h2 { 
+            font-size: 2.2rem; 
+            font-weight: 700;
+            margin-bottom: 12px; 
+        }
+
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 70px; 
+        }
+
+        .service-card { 
+            background: white; 
+            border-radius: 28px; 
+            padding: 28px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5; 
+            transition: all 0.3s; 
+        }
+
+        .service-card:hover { 
+            transform: translateY(-6px); 
+        }
+
+        .service-number { 
+            font-size: 2.8rem; 
+            font-weight: 800; 
+            color: #e2e8f0; 
+        }
+
+        .skills-section { 
+            background: #fef9f5; 
+            border-radius: 48px; 
+            padding: 48px 40px; 
+            margin-bottom: 70px; 
+        }
+
+        .skills-wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 18px;
+            justify-content: center; 
+        }
+
+        .skill-tag { 
+            background: white; 
+            padding: 12px 28px; 
+            border-radius: 60px; 
+            font-weight: 600; 
+            border: 1px solid #f1e7e0; 
+        }
+
+        /* Education section styles */
+        .education-section {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 48px 40px;
+            margin-bottom: 70px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5;
+        }
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .edu-card {
+            background: #fef9f5;
+            border-radius: 28px;
+            padding: 28px;
+            transition: all 0.3s;
+            border: 1px solid #f1e7e0;
+        }
+        .edu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+        .edu-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+        .edu-card .institution {
+            font-weight: 600;
+            color: #4F46E5;
+            margin-bottom: 12px;
+        }
+        .edu-card .date {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        .edu-card p {
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .testimonials-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            margin-bottom: 70px; 
+        }
+
+        .testimonial-card { 
+            background: #fff; 
+            border-radius: 28px; 
+            padding: 32px 28px; 
+            border: 1px solid #edf2f7; 
+        }
+
+        .works-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 28px; 
+            margin-bottom: 60px; 
+        }
+
+        .work-card { 
+            background: white; 
+            border-radius: 24px; 
+            overflow: hidden; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
+        }
+
+        .work-img { 
+            background: linear-gradient(135deg, #f1f5f9, #eef2ff); 
+            height: 180px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .work-img i { 
+            font-size: 4rem; 
+            color: #4f46e5; 
+        }
+
+        .work-info { 
+            padding: 20px; 
+        }
+
+        .cta-section { 
+            background: linear-gradient(115deg, #0f172a 0%, #1e1b4b 100%); 
+            border-radius: 48px; 
+            padding: 64px 48px; 
+            text-align: center; 
+            margin: 40px 0 60px; 
+            color: white; 
+        }
+
+        .cta-section h2 { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            margin-bottom: 16px; 
+        }
+
+        .cta-section p { 
+            font-size: 1.1rem; 
+            margin-bottom: 32px; 
+            opacity: 0.9; 
+            max-width: 550px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        .btn-light { 
+            background: white; 
+            color: #4F46E5; 
+            padding: 14px 36px; 
+            border-radius: 40px; 
+            font-weight: 700; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            transition: all 0.25s; 
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1); 
+        }
+
+        .btn-light:hover { 
+            transform: scale(1.02); 
+            background: #f8fafc; 
+        }
+
+        .footer { 
+            background: #111827; 
+            color: #e2e8f0; 
+            padding: 48px 0 24px; 
+            border-radius: 40px 40px 0 0; 
+            margin-top: 20px; 
+        }
+
+        .footer-inner { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+            gap: 32px; margin-bottom: 40px; 
+        }
+
+        .socials a { 
+            text-decoration: none; 
+            color: inherit;
+             margin-right: 18px; 
+             transition: opacity 0.2s;
+            }
+
+        .socials a:hover { 
+            opacity: 0.7; 
+        }
+
+        .socials i { 
+            font-size: 1.4rem; 
+        }
+
+        .copyright { 
+            text-align: center; 
+            padding-top: 24px; 
+            border-top: 1px solid #1f2a3e; 
+            font-size: 0.85rem; 
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .cta-section { padding: 40px 24px; }
+            .education-section { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">AZ</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#services">Services</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#works">Work</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact-section">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge"> Designer + Developer</div>
+                <h1>I'm <span>Ayesha Zaheed</span><br>Web Developer & Graphic Designer</h1>
+                <div class="hero-tagline">Seamlessly blending the worlds of code and creativity, crafting captivating digital experiences.</div>
+                 <div>
+                    <a href="#contact-section" style="text-decoration: none; font-weight: 500; margin-left: 20px; color:#4F46E5;">Let's talk →</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-circle"><i class="fas fa-code"></i></div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-item"><div class="stat-number">2+</div><div class="stat-label">Years of Experience</div></div>
+            <div class="stat-item"><div class="stat-number">30+</div><div class="stat-label">Projects Completed</div></div>
+            <div class="stat-item"><div class="stat-number">18+</div><div class="stat-label">Happy Clients</div></div>
+            <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Honors & Awards</div></div>
+        </div>
+
+        <!-- Services -->
+        <div id="services">
+            <div class="section-header"><h2>My Quality Services</h2><p>Innovative solutions tailored to elevate your digital identity</p></div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-number">01</div><h3>Web Development</h3><p>Stunning online portfolio that showcases your work, sleek and fully customizable.</p></div>
+                <div class="service-card"><div class="service-number">02</div><h3>UI/UX Design</h3><p>Intuitive and visually appealing experiences that resonate with your audience.</p></div>
+                <div class="service-card"><div class="service-number">03</div><h3>Content Creation</h3><p>Compelling project descriptions, case studies, and personal bios.</p></div>
+                <div class="service-card"><div class="service-number">04</div><h3>SEO Optimization</h3><p>Boost visibility, optimize keywords, meta tags, and rank higher.</p></div>
+                <div class="service-card"><div class="service-number">05</div><h3>Social Media Integration</h3><p>Expand reach, engage audiences, integrate LinkedIn, Instagram, Twitter.</p></div>
+                <div class="service-card"><div class="service-number">06</div><h3>Analytics & Tracking</h3><p>Monitor performance, Google Analytics, data-driven insights.</p></div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div id="skills" class="skills-section">
+            <div class="section-header"><h2>My Skills & Expertise</h2><p>Creative code meets design thinking</p></div>
+            <div class="skills-wrapper">
+                <div class="skill-tag"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill-tag"><i class="fas fa-server"></i> Java</div>
+                <div class="skill-tag"><i class="fas fa-database"></i> Database (MySQL/PostgreSQL)</div>
+                <div class="skill-tag"><i class="fab fa-php"></i> PHP</div>
+                <div class="skill-tag"><i class="fab fa-react"></i> React.js</div>
+                <div class="skill-tag"><i class="fab fa-js"></i> JavaScript (ES6+)</div>
+                <div class="skill-tag"><i class="fas fa-palette"></i> Figma</div>
+                <div class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+            </div>
+        </div>
+
+        <!-- NEW: Education Section -->
+        <div id="education" class="education-section">
+            <div class="section-header">
+                <h2>My Education</h2>
+                <p>Academic background and qualifications</p>
+            </div>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h3>BS Computer Science</h3>
+                    <div class="institution">Riphah International University(ggc)</div>
+                    <div class="date">2024 - 2028</div>
+                    <p>Currently in 4th semester</p>
+                </div>
+                <div class="edu-card">
+                    <h3>Intermediate (F.Sc Pre-Medical)</h3>
+                    <div class="institution">Punjab Group of Colleges (Aabpara)</div>
+                    <div class="date">2022 - 2024</div>
+                </div>
+                <div class="edu-card">
+                    <h3>Matriculation (Biology)</h3>
+                    <div class="institution">International Islamic University Islamabad School</div>
+                    <div class="date">2020 - 2022</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div id="testimonials">
+            <div class="section-header"><h2>See What My Clients Say</h2><p>Trusted by innovators and global brands</p></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“Ayesha redesigned our entire product interface, boosting engagement by 40%.”</div><div class="client-info"><div><strong>Michael Chen</strong><br/>CTO, Nexify</div></div></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“From portfolio to SEO – she delivered beyond expectations. Highly recommend!”</div><div class="client-info"><div><strong>Sarah Johnson</strong><br/>Creative Director</div></div></div>
+                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“The Node.js dashboard she built streamlined our internal data flow. Excellent work.”</div><div class="client-info"><div><strong>James Okafor</strong><br/>Lead Dev, StartupFlow</div></div></div>
+            </div>
+        </div>
+
+        <!-- Recent Works -->
+        <div id="works">
+            <div class="section-header"><h2>My Recent Works</h2><p>Real projects built with Node.js, Express, and modern full-stack tools</p></div>
+            <div class="works-grid">
+                <div class="work-card"><div class="work-img"><i class="fab fa-node-js"></i></div><div class="work-info"><h4>e-voting system</h4><p> The system aims to 
+                provide a secure, user-friendly, and efficient alternative to traditional paper-based voting.</p></div></div>
+                <div class="work-card"><div class="work-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="work-info"><h4>Student Management System</h4><p>This project proposes a Student Management System (SMS) built using Java Swing to help 
+                academic institutions manage essential student-related information digitally.</p></div></div>
+                <div class="work-card"><div class="work-img"><i class="fas fa-chart-line"></i></div><div class="work-info"><h4>Car Parking System</h4><p>This artifact introduces an efficient airport car parking system designed to improve 
+                convenience, maximize space usage, and ensure security. </p></div></div>
+                <div class="work-card"><div class="work-img"><i class="fas fa-blog"></i></div><div class="work-info"><h4>Phone Book Manager</h4><p>It is a kind of autoetic phonebook in which user can add numbers, dates etc.</p></div></div>
+                <div class="work-card"><div class="work-img"><i class="fas fa-user-astronaut"></i></div><div class="work-info"><h4>Portfolio System</h4><p>Dynamic generator for creatives</p></div></div>
+                <div class="work-card"><div class="work-img"><i class="fas fa-globe"></i></div><div class="work-info"><h4>Glow up Tracker</h4><p>Website in which a users can track their routine, glow up; weekly, daily ,monthly ..add tasks and see all and pending tasks.</p></div></div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Let's Work Together</h2>
+            <p>Got a project in mind? Whether it's a web app, a creative brand identity, or a full-scale digital experience - I'm ready to bring your vision to life.</p>
+            <a href="#contact-section" class="btn-light"><i class="fas fa-paper-plane"></i> Start a project</a>
+        </div>
+    </div>
+</main>
+
+<!-- Contact Section -->
+<section id="contact-section" style="padding: 60px 0;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Have a project? Let's collaborate - drop me a message</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
+            <div style="flex: 1; min-width: 240px;">
+                <h3 style="margin-bottom: 24px;">Contact Info</h3>
+                <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+                    <i class="fas fa-envelope" style="font-size: 1.4rem; color: #4F46E5;"></i>
+                    <div><strong>Email</strong><br>zaheedayesha3137@gmail.com</div>
+                </div>
+                <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+                    <i class="fas fa-phone-alt" style="font-size: 1.4rem; color: #4F46E5;"></i>
+                    <div><strong>Phone</strong><br>0331-5944566</div>
+                </div>
+                <div style="display: flex; gap: 16px; margin-bottom: 20px;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 1.4rem; color: #4F46E5;"></i>
+                    <div><strong>Location</strong><br>Sadaat town, Islamabad (Remote)</div>
+                </div>
+                <div class="socials">
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Ayesha3137" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/ayesha_zaheed" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div style="flex: 2; min-width: 280px;">
+                <form action="#" method="POST" id="contactForm">
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+                        <input type="text" name="name" placeholder="Your Name" required style="flex:1; padding: 14px; border-radius: 32px; border: 1px solid #e2e8f0; font-family: inherit;">
+                        <input type="email" name="email" placeholder="Email Address" required style="flex:1; padding: 14px; border-radius: 32px; border: 1px solid #e2e8f0; font-family: inherit;">
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" style="width:100%; padding: 14px; border-radius: 32px; border: 1px solid #e2e8f0; margin-bottom: 20px; font-family: inherit;">
+                    <textarea name="message" rows="5" placeholder="Your message..." required style="width:100%; padding: 14px; border-radius: 28px; border: 1px solid #e2e8f0; font-family: inherit; resize: vertical;"></textarea>
+                    <button type="submit" class="btn-primary" style="margin-top: 20px;"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    <p id="formStatus" style="margin-top: 12px; font-size: 0.9rem;"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div><h4>Ayesha Zaheed</h4><p style="max-width: 260px;">Code + Creativity. Let's build something remarkable.</p></div>
+            <div><h4>Quick Links</h4><p><a href="#" style="color:#cbd5e1; text-decoration: none;">Home</a></p><p><a href="#services" style="color:#cbd5e1; text-decoration: none;">Services</a></p><p><a href="#skills" style="color:#cbd5e1; text-decoration: none;">Skills</a></p><p><a href="#education" style="color:#cbd5e1; text-decoration: none;">Education</a></p><p><a href="#works" style="color:#cbd5e1; text-decoration: none;">Portfolio</a></p></div>
+            <div><h4>Connect</h4>
+                <div class="socials">
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Ayesha3137" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/ayesha_zaheed" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p style="margin-top: 12px;">zaheedayesha3137@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">© 2026 Ayesha Zaheed — Web Developer & Graphic Designer. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#" || targetId === "") return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Form submission demo
+    const form = document.getElementById('contactForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            status.innerHTML = '✅ Thanks! I\'ll get back to you soon.';
+            status.style.color = 'green';
+            form.reset();
+            setTimeout(() => { status.innerHTML = ''; }, 4000);
+        });
+    }
+
+    // Fade-in animation on scroll (include .edu-card)
+    const fadeElements = document.querySelectorAll('.service-card, .testimonial-card, .work-card, .skill-tag, .stat-item, .cta-section, .hero-content, .hero-image, .edu-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
+        observer.observe(el);
+    });
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            fadeElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }, 100);
+    });
+</script>
+</body>
+</html>
