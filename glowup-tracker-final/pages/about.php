@@ -12,7 +12,7 @@
     <h2>GlowUp</h2>
     <a href="dashboard.php">Dashboard</a>
     <a href="about.php" class="active">About</a>
-    <a href="#" class="dark-mode-btn">🌙 Dark Mode</a>
+    <a href="#" class="dark-mode-btn">Dark Mode</a>
     <a href="../auth/logout.php" class="logout">Logout</a>
 </aside>
 <main class="main">
