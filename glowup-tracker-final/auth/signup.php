@@ -110,7 +110,7 @@ if(isset($_POST['signup'])){
 </head>
 <body>
     <div class="signup-card">
-        <div class="logo">✨ GlowUp</div>
+        <div class="logo">GlowUp</div>
         <div class="welcome-text">Create Account</div>
         <div class="glow-sub">Start your glow up journey today</div>
 
@@ -142,7 +142,7 @@ if(isset($_POST['signup'])){
                     <input type="password" name="password" id="password" placeholder="Min. 6 characters" required>
                     <button type="button" class="toggle-password" id="togglePassword"><i class="fas fa-eye-slash"></i></button>
                 </div>
-                <div class="password-hint">🔒 Password must be at least 6 characters</div>
+                <div class="password-hint">Password must be at least 6 characters</div>
             </div>
 
             <div class="input-group">
