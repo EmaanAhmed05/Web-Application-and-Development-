@@ -26,6 +26,137 @@
             padding: 0 24px; 
         }
 
+        /* ========== ANIMATIONS & TRANSFORMATIONS ========== */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(79, 70, 229, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        }
+        .avatar-circle {
+            animation: float 4s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .avatar-circle:hover {
+            transform: rotate(3deg) scale(1.02);
+            cursor: pointer;
+        }
+        .hero-badge {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block;
+        }
+        .hero-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+        .btn-primary, .btn-light {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .btn-primary:hover, .btn-light:hover {
+            transform: scale(1.05) translateY(-3px);
+            filter: brightness(1.02);
+        }
+        .service-card, .edu-card, .testimonial-card, .work-card, .skill-tag, .stat-item {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .work-card:hover, .edu-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 35px -12px rgba(79, 70, 229, 0.2);
+        }
+        .work-card {
+            overflow: hidden;
+        }
+        .work-img {
+            transition: transform 0.4s ease;
+        }
+        .work-card:hover .work-img {
+            transform: scale(1.05);
+        }
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #f3e8ff;
+            border-color: #c4b5fd;
+        }
+        .stat-item:hover .stat-number {
+            transform: scale(1.05);
+            display: inline-block;
+        }
+        .stat-number {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        .fade-item {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.5s ease;
+        }
+        .fade-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-header {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.5s ease;
+        }
+        .section-header.revealed-header {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cta-section .btn-light {
+            animation: glowPulse 2s infinite;
+        }
+        .cta-section .btn-light:hover {
+            animation: none;
+        }
+        .nav-links a {
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(95deg, #4F46E5, #7C3AED);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .typed-text {
+            border-right: 2px solid #4F46E5;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #4F46E5; }
+        }
+        input, textarea {
+            transition: all 0.2s ease;
+        }
+        input:focus, textarea:focus {
+            transform: scale(1.01);
+            border-color: #4F46E5 !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            outline: none;
+        }
+        @media (max-width: 768px) {
+            .typed-text {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+        }
+        /* rest of original styles */
         .navbar { 
             display: flex; 
             justify-content: space-between; 
@@ -34,7 +165,6 @@
             padding: 20px 0; 
             border-bottom: 1px solid #eef2f6; 
         }
-
         .logo { 
             font-size: 1.8rem;
              font-weight: 800;
@@ -43,24 +173,17 @@
                 background-clip: text;
                  color: transparent; 
                 }
-
         .nav-links {
              display: flex; 
              gap: 32px; 
              flex-wrap: wrap; 
             }
-
         .nav-links a { 
             text-decoration: none; 
             font-weight: 500; 
             color: #1f2937; 
             transition: color 0.2s; 
         }
-
-        .nav-links a:hover {
-             color: #4F46E5; 
-            }
-
         .btn-primary { 
             display: inline-block; 
             background: linear-gradient(95deg, #4F46E5, #7C3AED); 
@@ -70,16 +193,9 @@
             border-radius: 40px; 
             text-decoration: none; 
             box-shadow: 0 8px 20px rgba(79, 70, 229, 0.2); 
-            transition: all 0.25s ease; 
             border: none; 
             cursor: pointer; 
         }
-
-        .btn-primary:hover {
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 25px rgba(79, 70, 229, 0.25); 
-        }
-
         .hero { 
             display: flex;
             flex-wrap: wrap;
@@ -87,8 +203,7 @@
             justify-content: space-between;
             gap: 48px;
             padding: 60px 0 40px; 
-            }
-
+        }
         .hero-content { 
             flex: 1; 
         }
@@ -103,293 +218,45 @@
             border-radius: 40px; 
             margin-bottom: 20px; 
         }
-
-        .hero-content h1 { 
-            font-size: 3.5rem; 
-            font-weight: 800; 
-            line-height: 1.2; 
-            margin-bottom: 16px; 
-        }
-
-        .hero-content h1 span { 
-            background: linear-gradient(135deg, #4F46E5, #C026D3); 
-            -webkit-background-clip: text; 
-            background-clip: text; 
-            color: transparent; 
-        }
-
-        .hero-tagline { 
-            font-size: 1.2rem; 
-            color: #4b5563; 
-            margin-bottom: 24px; 
-            border-left: 3px solid #8b5cf6; 
-            padding-left: 20px;
-        }
-
-        .avatar-circle { 
-            background: linear-gradient(145deg, #f0f4ff, #e9eaff); 
-            width: 280px; 
-            height: 280px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-
-        .avatar-circle i { 
-            font-size: 130px; 
-            color: #4F46E5; 
-        }
-
-        .stats-row { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            gap: 24px; 
-            background: #f8fafc; 
-            border-radius: 56px; 
-            padding: 32px 40px;
-            margin: 40px 0 60px; 
-        }
-
-        .stat-item { 
-            text-align: center; 
-            flex: 1; 
-        }
-
-        .stat-number { 
-            font-size: 2.5rem; 
-            font-weight: 800; 
-        }
-
-        .section-header { 
-            text-align: center; 
-            margin-bottom: 48px; 
-        }
-
-        .section-header h2 { 
-            font-size: 2.2rem; 
-            font-weight: 700;
-            margin-bottom: 12px; 
-        }
-
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); 
-            gap: 30px; 
-            margin-bottom: 70px; 
-        }
-
-        .service-card { 
-            background: white; 
-            border-radius: 28px; 
-            padding: 28px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5; 
-            transition: all 0.3s; 
-        }
-
-        .service-card:hover { 
-            transform: translateY(-6px); 
-        }
-
-        .service-number { 
-            font-size: 2.8rem; 
-            font-weight: 800; 
-            color: #e2e8f0; 
-        }
-
-        .skills-section { 
-            background: #fef9f5; 
-            border-radius: 48px; 
-            padding: 48px 40px; 
-            margin-bottom: 70px; 
-        }
-
-        .skills-wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 18px;
-            justify-content: center; 
-        }
-
-        .skill-tag { 
-            background: white; 
-            padding: 12px 28px; 
-            border-radius: 60px; 
-            font-weight: 600; 
-            border: 1px solid #f1e7e0; 
-        }
-
-        /* Education section styles */
-        .education-section {
-            background: #ffffff;
-            border-radius: 48px;
-            padding: 48px 40px;
-            margin-bottom: 70px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5;
-        }
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .edu-card {
-            background: #fef9f5;
-            border-radius: 28px;
-            padding: 28px;
-            transition: all 0.3s;
-            border: 1px solid #f1e7e0;
-        }
-        .edu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-        .edu-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #1f2937;
-        }
-        .edu-card .institution {
-            font-weight: 600;
-            color: #4F46E5;
-            margin-bottom: 12px;
-        }
-        .edu-card .date {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-bottom: 12px;
-        }
-        .edu-card p {
-            color: #4b5563;
-            line-height: 1.5;
-        }
-
-        .testimonials-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            margin-bottom: 70px; 
-        }
-
-        .testimonial-card { 
-            background: #fff; 
-            border-radius: 28px; 
-            padding: 32px 28px; 
-            border: 1px solid #edf2f7; 
-        }
-
-        .works-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 28px; 
-            margin-bottom: 60px; 
-        }
-
-        .work-card { 
-            background: white; 
-            border-radius: 24px; 
-            overflow: hidden; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04); 
-        }
-
-        .work-img { 
-            background: linear-gradient(135deg, #f1f5f9, #eef2ff); 
-            height: 180px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-
-        .work-img i { 
-            font-size: 4rem; 
-            color: #4f46e5; 
-        }
-
-        .work-info { 
-            padding: 20px; 
-        }
-
-        .cta-section { 
-            background: linear-gradient(115deg, #0f172a 0%, #1e1b4b 100%); 
-            border-radius: 48px; 
-            padding: 64px 48px; 
-            text-align: center; 
-            margin: 40px 0 60px; 
-            color: white; 
-        }
-
-        .cta-section h2 { 
-            font-size: 2.5rem; 
-            font-weight: 800; 
-            margin-bottom: 16px; 
-        }
-
-        .cta-section p { 
-            font-size: 1.1rem; 
-            margin-bottom: 32px; 
-            opacity: 0.9; 
-            max-width: 550px; 
-            margin-left: auto; 
-            margin-right: auto; 
-        }
-
-        .btn-light { 
-            background: white; 
-            color: #4F46E5; 
-            padding: 14px 36px; 
-            border-radius: 40px; 
-            font-weight: 700; 
-            text-decoration: none; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            transition: all 0.25s; 
-            box-shadow: 0 8px 18px rgba(0,0,0,0.1); 
-        }
-
-        .btn-light:hover { 
-            transform: scale(1.02); 
-            background: #f8fafc; 
-        }
-
-        .footer { 
-            background: #111827; 
-            color: #e2e8f0; 
-            padding: 48px 0 24px; 
-            border-radius: 40px 40px 0 0; 
-            margin-top: 20px; 
-        }
-
-        .footer-inner { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-between; 
-            gap: 32px; margin-bottom: 40px; 
-        }
-
-        .socials a { 
-            text-decoration: none; 
-            color: inherit;
-             margin-right: 18px; 
-             transition: opacity 0.2s;
-            }
-
-        .socials a:hover { 
-            opacity: 0.7; 
-        }
-
-        .socials i { 
-            font-size: 1.4rem; 
-        }
-
-        .copyright { 
-            text-align: center; 
-            padding-top: 24px; 
-            border-top: 1px solid #1f2a3e; 
-            font-size: 0.85rem; 
-        }
-
+        
+        .hero-content h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+        .hero-content h1 span { background: linear-gradient(135deg, #4F46E5, #C026D3); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero-tagline { font-size: 1.2rem; color: #4b5563; margin-bottom: 24px; border-left: 3px solid #8b5cf6; padding-left: 20px; min-height: 70px; }
+        .avatar-circle { background: linear-gradient(145deg, #f0f4ff, #e9eaff); width: 280px; height: 280px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .avatar-circle i { font-size: 130px; color: #4F46E5; }
+        .stats-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; background: #f8fafc; border-radius: 56px; padding: 32px 40px; margin: 40px 0 60px; }
+        .stat-item { text-align: center; flex: 1; }
+        .stat-number { font-size: 2.5rem; font-weight: 800; }
+        .section-header { text-align: center; margin-bottom: 48px; }
+        .section-header h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 30px; margin-bottom: 70px; }
+        .service-card { background: white; border-radius: 28px; padding: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5; }
+        .service-number { font-size: 2.8rem; font-weight: 800; color: #e2e8f0; }
+        .skills-section { background: #fef9f5; border-radius: 48px; padding: 48px 40px; margin-bottom: 70px; }
+        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
+        .skill-tag { background: white; padding: 12px 28px; border-radius: 60px; font-weight: 600; border: 1px solid #f1e7e0; }
+        .education-section { background: #ffffff; border-radius: 48px; padding: 48px 40px; margin-bottom: 70px; box-shadow: 0 5px 20px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5; }
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .edu-card { background: #fef9f5; border-radius: 28px; padding: 28px; border: 1px solid #f1e7e0; }
+        .edu-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+        .edu-card .institution { font-weight: 600; color: #4F46E5; margin-bottom: 12px; }
+        .edu-card .date { font-size: 0.85rem; color: #6b7280; margin-bottom: 12px; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 70px; }
+        .testimonial-card { background: #fff; border-radius: 28px; padding: 32px 28px; border: 1px solid #edf2f7; }
+        .works-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; margin-bottom: 60px; }
+        .work-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+        .work-img { background: linear-gradient(135deg, #f1f5f9, #eef2ff); height: 180px; display: flex; align-items: center; justify-content: center; }
+        .work-img i { font-size: 4rem; color: #4f46e5; }
+        .work-info { padding: 20px; }
+        .cta-section { background: linear-gradient(115deg, #0f172a 0%, #1e1b4b 100%); border-radius: 48px; padding: 64px 48px; text-align: center; margin: 40px 0 60px; color: white; }
+        .cta-section h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .btn-light { background: white; color: #4F46E5; padding: 14px 36px; border-radius: 40px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.25s; box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
+        .footer { background: #111827; color: #e2e8f0; padding: 48px 0 24px; border-radius: 40px 40px 0 0; margin-top: 20px; }
+        .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 40px; }
+        .socials a { text-decoration: none; color: inherit; margin-right: 18px; transition: opacity 0.2s; }
+        .socials a:hover { opacity: 0.7; }
+        .socials i { font-size: 1.4rem; }
+        .copyright { text-align: center; padding-top: 24px; border-top: 1px solid #1f2a3e; font-size: 0.85rem; }
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.5rem; }
             .cta-section h2 { font-size: 1.8rem; }
@@ -420,11 +287,11 @@
         <!-- Hero Section -->
         <div class="hero">
             <div class="hero-content">
-                <div class="hero-badge"> Designer + Developer</div>
+                <div class="hero-badge">Designer + Developer</div>
                 <h1>I'm <span>Ayesha Zaheed</span><br>Web Developer & Graphic Designer</h1>
-                <div class="hero-tagline">Seamlessly blending the worlds of code and creativity, crafting captivating digital experiences.</div>
+                <div class="hero-tagline" id="typingTagline"></div>
                  <div>
-                    <a href="#contact-section" style="text-decoration: none; font-weight: 500; margin-left: 20px; color:#4F46E5;">Let's talk →</a>
+                    <a href="#contact-section" class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -444,12 +311,12 @@
         <div id="services">
             <div class="section-header"><h2>My Quality Services</h2><p>Innovative solutions tailored to elevate your digital identity</p></div>
             <div class="services-grid">
-                <div class="service-card"><div class="service-number">01</div><h3>Web Development</h3><p>Stunning online portfolio that showcases your work, sleek and fully customizable.</p></div>
-                <div class="service-card"><div class="service-number">02</div><h3>UI/UX Design</h3><p>Intuitive and visually appealing experiences that resonate with your audience.</p></div>
-                <div class="service-card"><div class="service-number">03</div><h3>Content Creation</h3><p>Compelling project descriptions, case studies, and personal bios.</p></div>
-                <div class="service-card"><div class="service-number">04</div><h3>SEO Optimization</h3><p>Boost visibility, optimize keywords, meta tags, and rank higher.</p></div>
-                <div class="service-card"><div class="service-number">05</div><h3>Social Media Integration</h3><p>Expand reach, engage audiences, integrate LinkedIn, Instagram, Twitter.</p></div>
-                <div class="service-card"><div class="service-number">06</div><h3>Analytics & Tracking</h3><p>Monitor performance, Google Analytics, data-driven insights.</p></div>
+                <div class="service-card fade-item"><div class="service-number">01</div><h3>Web Development</h3><p>Stunning online portfolio that showcases your work, sleek and fully customizable.</p></div>
+                <div class="service-card fade-item"><div class="service-number">02</div><h3>UI/UX Design</h3><p>Intuitive and visually appealing experiences that resonate with your audience.</p></div>
+                <div class="service-card fade-item"><div class="service-number">03</div><h3>Content Creation</h3><p>Compelling project descriptions, case studies, and personal bios.</p></div>
+                <div class="service-card fade-item"><div class="service-number">04</div><h3>SEO Optimization</h3><p>Boost visibility, optimize keywords, meta tags, and rank higher.</p></div>
+                <div class="service-card fade-item"><div class="service-number">05</div><h3>Social Media Integration</h3><p>Expand reach, engage audiences, integrate LinkedIn, Instagram, Twitter.</p></div>
+                <div class="service-card fade-item"><div class="service-number">06</div><h3>Analytics & Tracking</h3><p>Monitor performance, Google Analytics, data-driven insights.</p></div>
             </div>
         </div>
 
@@ -457,36 +324,33 @@
         <div id="skills" class="skills-section">
             <div class="section-header"><h2>My Skills & Expertise</h2><p>Creative code meets design thinking</p></div>
             <div class="skills-wrapper">
-                <div class="skill-tag"><i class="fab fa-node-js"></i> Node.js</div>
-                <div class="skill-tag"><i class="fas fa-server"></i> Java</div>
-                <div class="skill-tag"><i class="fas fa-database"></i> Database (MySQL/PostgreSQL)</div>
-                <div class="skill-tag"><i class="fab fa-php"></i> PHP</div>
-                <div class="skill-tag"><i class="fab fa-react"></i> React.js</div>
-                <div class="skill-tag"><i class="fab fa-js"></i> JavaScript (ES6+)</div>
-                <div class="skill-tag"><i class="fas fa-palette"></i> Figma</div>
-                <div class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                <div class="skill-tag fade-item"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill-tag fade-item"><i class="fas fa-server"></i> Java</div>
+                <div class="skill-tag fade-item"><i class="fas fa-database"></i> Database (MySQL/PostgreSQL)</div>
+                <div class="skill-tag fade-item"><i class="fab fa-php"></i> PHP</div>
+                <div class="skill-tag fade-item"><i class="fab fa-react"></i> React.js</div>
+                <div class="skill-tag fade-item"><i class="fab fa-js"></i> JavaScript (ES6+)</div>
+                <div class="skill-tag fade-item"><i class="fas fa-palette"></i> Figma</div>
+                <div class="skill-tag fade-item"><i class="fab fa-git-alt"></i> Git & GitHub</div>
             </div>
         </div>
 
-        <!-- NEW: Education Section -->
+        <!-- Education Section -->
         <div id="education" class="education-section">
-            <div class="section-header">
-                <h2>My Education</h2>
-                <p>Academic background and qualifications</p>
-            </div>
+            <div class="section-header"><h2>My Education</h2><p>Academic background and qualifications</p></div>
             <div class="education-grid">
-                <div class="edu-card">
+                <div class="edu-card fade-item">
                     <h3>BS Computer Science</h3>
-                    <div class="institution">Riphah International University(ggc)</div>
+                    <div class="institution">Riphah International University (ggc)</div>
                     <div class="date">2024 - 2028</div>
                     <p>Currently in 4th semester</p>
                 </div>
-                <div class="edu-card">
+                <div class="edu-card fade-item">
                     <h3>Intermediate (F.Sc Pre-Medical)</h3>
                     <div class="institution">Punjab Group of Colleges (Aabpara)</div>
                     <div class="date">2022 - 2024</div>
                 </div>
-                <div class="edu-card">
+                <div class="edu-card fade-item">
                     <h3>Matriculation (Biology)</h3>
                     <div class="institution">International Islamic University Islamabad School</div>
                     <div class="date">2020 - 2022</div>
@@ -498,9 +362,9 @@
         <div id="testimonials">
             <div class="section-header"><h2>See What My Clients Say</h2><p>Trusted by innovators and global brands</p></div>
             <div class="testimonials-grid">
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“Ayesha redesigned our entire product interface, boosting engagement by 40%.”</div><div class="client-info"><div><strong>Michael Chen</strong><br/>CTO, Nexify</div></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“From portfolio to SEO – she delivered beyond expectations. Highly recommend!”</div><div class="client-info"><div><strong>Sarah Johnson</strong><br/>Creative Director</div></div></div>
-                <div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">“The Node.js dashboard she built streamlined our internal data flow. Excellent work.”</div><div class="client-info"><div><strong>James Okafor</strong><br/>Lead Dev, StartupFlow</div></div></div>
+                <div class="testimonial-card fade-item"><i class="fas fa-quote-left"></i><div class="testimonial-text">“Ayesha redesigned our entire product interface, boosting engagement by 40%.”</div><div class="client-info"><div><strong>Michael Chen</strong><br/>CTO, Nexify</div></div></div>
+                <div class="testimonial-card fade-item"><i class="fas fa-quote-left"></i><div class="testimonial-text">“From portfolio to SEO – she delivered beyond expectations. Highly recommend!”</div><div class="client-info"><div><strong>Sarah Johnson</strong><br/>Creative Director</div></div></div>
+                <div class="testimonial-card fade-item"><i class="fas fa-quote-left"></i><div class="testimonial-text">“The Node.js dashboard she built streamlined our internal data flow. Excellent work.”</div><div class="client-info"><div><strong>James Okafor</strong><br/>Lead Dev, StartupFlow</div></div></div>
             </div>
         </div>
 
@@ -508,15 +372,12 @@
         <div id="works">
             <div class="section-header"><h2>My Recent Works</h2><p>Real projects built with Node.js, Express, and modern full-stack tools</p></div>
             <div class="works-grid">
-                <div class="work-card"><div class="work-img"><i class="fab fa-node-js"></i></div><div class="work-info"><h4>e-voting system</h4><p> The system aims to 
-                provide a secure, user-friendly, and efficient alternative to traditional paper-based voting.</p></div></div>
-                <div class="work-card"><div class="work-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="work-info"><h4>Student Management System</h4><p>This project proposes a Student Management System (SMS) built using Java Swing to help 
-                academic institutions manage essential student-related information digitally.</p></div></div>
-                <div class="work-card"><div class="work-img"><i class="fas fa-chart-line"></i></div><div class="work-info"><h4>Car Parking System</h4><p>This artifact introduces an efficient airport car parking system designed to improve 
-                convenience, maximize space usage, and ensure security. </p></div></div>
-                <div class="work-card"><div class="work-img"><i class="fas fa-blog"></i></div><div class="work-info"><h4>Phone Book Manager</h4><p>It is a kind of autoetic phonebook in which user can add numbers, dates etc.</p></div></div>
-                <div class="work-card"><div class="work-img"><i class="fas fa-user-astronaut"></i></div><div class="work-info"><h4>Portfolio System</h4><p>Dynamic generator for creatives</p></div></div>
-                <div class="work-card"><div class="work-img"><i class="fas fa-globe"></i></div><div class="work-info"><h4>Glow up Tracker</h4><p>Website in which a users can track their routine, glow up; weekly, daily ,monthly ..add tasks and see all and pending tasks.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fab fa-node-js"></i></div><div class="work-info"><h4>e-voting system</h4><p>Secure, user-friendly alternative to traditional paper-based voting.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fas fa-cloud-upload-alt"></i></div><div class="work-info"><h4>Student Management System</h4><p>Java Swing app to manage student records digitally.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fas fa-chart-line"></i></div><div class="work-info"><h4>Car Parking System</h4><p>Efficient airport parking with space tracking and security.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fas fa-blog"></i></div><div class="work-info"><h4>Phone Book Manager</h4><p>Automated phonebook to add numbers, dates, etc.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fas fa-user-astronaut"></i></div><div class="work-info"><h4>Portfolio System</h4><p>Dynamic generator for creatives.</p></div></div>
+                <div class="work-card fade-item"><div class="work-img"><i class="fas fa-globe"></i></div><div class="work-info"><h4>Glow up Tracker</h4><p>Track routine, weekly/daily goals, tasks.</p></div></div>
             </div>
         </div>
 
@@ -532,10 +393,7 @@
 <!-- Contact Section -->
 <section id="contact-section" style="padding: 60px 0;">
     <div class="container">
-        <div class="section-header">
-            <h2>Get In Touch</h2>
-            <p>Have a project? Let's collaborate - drop me a message</p>
-        </div>
+        <div class="section-header"><h2>Get In Touch</h2><p>Have a project? Let's collaborate - drop me a message</p></div>
         <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between;">
             <div style="flex: 1; min-width: 240px;">
                 <h3 style="margin-bottom: 24px;">Contact Info</h3>
@@ -592,6 +450,23 @@
 </footer>
 
 <script>
+    // ========== TYPING ANIMATION ==========
+    const taglineText = "Seamlessly blending the worlds of code and creativity, crafting captivating digital experiences.";
+    const typingElement = document.getElementById('typingTagline');
+    let i = 0;
+    function typeWriter() {
+        if (i < taglineText.length && typingElement) {
+            typingElement.innerHTML = taglineText.substring(0, i+1) + '<span class="typed-text"></span>';
+            i++;
+            setTimeout(typeWriter, 35);
+        } else if (typingElement) {
+            typingElement.innerHTML = taglineText;
+        }
+    }
+    window.addEventListener('load', () => {
+        if (typingElement) typeWriter();
+    });
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -605,7 +480,7 @@
         });
     });
 
-    // Form submission demo
+    // Contact form demo
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -618,32 +493,48 @@
         });
     }
 
-    // Fade-in animation on scroll (include .edu-card)
-    const fadeElements = document.querySelectorAll('.service-card, .testimonial-card, .work-card, .skill-tag, .stat-item, .cta-section, .hero-content, .hero-image, .edu-card');
+    // Staggered reveal for fade-item elements
+    const fadeItems = document.querySelectorAll('.fade-item');
     const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('revealed');
+                }, idx * 70);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+    fadeItems.forEach(el => observer.observe(el));
+
+    // Reveal section headers on scroll
+    const headers = document.querySelectorAll('.section-header');
+    const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed-header');
+                headerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    headers.forEach(header => headerObserver.observe(header));
+
+    // Stats row items fade in
+    const statItems = document.querySelectorAll('.stat-item');
+    const statObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+                statObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
-    fadeElements.forEach(el => {
+    }, { threshold: 0.2 });
+    statItems.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
-        observer.observe(el);
-    });
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            fadeElements.forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        }, 100);
+        statObserver.observe(el);
     });
 </script>
 </body>
