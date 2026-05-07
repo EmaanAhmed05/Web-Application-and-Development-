@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
     $res = $stmt->get_result();
     $user = $res->fetch_assoc();
 
-    if($user && password_verify($password, $user['password'])){
+    if($user && password_verify($password, $user['PASSWORD'])){
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
 
@@ -362,7 +362,7 @@ body.dark-mode .login-card h2 {
         <!-- Success message after signup -->
         <?php if(isset($_GET['msg']) && $_GET['msg'] == 'signup_success'): ?>
             <div class="success-message">
-                ✅ Account created successfully! Please sign in.
+                Account created successfully! Please sign in.
             </div>
         <?php endif; ?>
 
@@ -442,7 +442,7 @@ body.dark-mode .login-card h2 {
         // Forgot password demo
         document.getElementById('forgotPassword').addEventListener('click', function(e) {
             e.preventDefault();
-            alert('📧 Password reset link would be sent to your email.\n(Demo feature)');
+            alert('Password reset link would be sent to your email.\n(Demo feature)');
         });
     </script>
 
