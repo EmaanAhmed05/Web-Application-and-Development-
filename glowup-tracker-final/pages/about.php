@@ -5,38 +5,6 @@
 <meta charset="UTF-8">
 <title>About - GlowUp</title>
 <link rel="stylesheet" href="../assets/css/style.css">
-<style>
-    /* Dark Mode CSS */
-    body.dark-mode {
-        background: #1a1a2e !important;
-        color: #eeeeee !important;
-    }
-    body.dark-mode .sidebar {
-        background: #16213e !important;
-    }
-    body.dark-mode .sidebar h2 {
-        color: #4caf50 !important;
-    }
-    body.dark-mode .sidebar a {
-        color: #cccccc !important;
-    }
-    body.dark-mode .sidebar a:hover {
-        background: #2a2a4a !important;
-    }
-    body.dark-mode .main {
-        background: #1a1a2e !important;
-    }
-    body.dark-mode .profile-card {
-        background: #16213e !important;
-        color: white !important;
-    }
-    body.dark-mode .logout {
-        color: #ff6b6b !important;
-    }
-    body.dark-mode .avatar {
-        background: #2e7d32 !important;
-    }
-</style>
 </head>
 <body>
 <div class="container">
