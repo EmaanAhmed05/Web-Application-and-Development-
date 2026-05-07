@@ -178,14 +178,14 @@ $msg = $_GET['msg'] ?? '';
     <h2>GlowUp</h2>
     <a class="active" href="#">Dashboard</a>
     <a href="about.php">About</a>
-    <a href="#" class="dark-mode-btn">🌙 Dark Mode</a>
+    <a href="#" class="dark-mode-btn">Dark Mode</a>
     <a href="../auth/logout.php" class="logout">Logout</a>
 </aside>
 
 <main class="main">
     <div class="topbar">
         <div>
-            <h1>Welcome back, <?= htmlspecialchars($username) ?> 👋</h1>
+            <h1>Welcome back, <?= htmlspecialchars($username) ?></h1>
             <p class="subtitle">Here's your glow up progress</p>
         </div>
     </div>
