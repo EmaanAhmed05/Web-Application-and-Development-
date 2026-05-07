@@ -18,11 +18,12 @@
 <main class="main">
     <h1>Our Team</h1>
     <div class="profiles">
-        <div class="profile-card" onclick="showProfile('Ayesha Zaheed','Backend Developer')">
-            <div class="avatar">A</div>
-            <h3>Ayesha Zaheed</h3>
-            <p>Backend Developer</p>
-        </div>
+        
+        <div class="profile-card" onclick="window.open('../Ayesha-portfolio.html', '_blank')">
+    <div class="avatar">A</div>
+    <h3>Ayesha Zaheed</h3>
+    <p>Backend Developer</p>
+</div>
         <div class="profile-card" onclick="window.open('../eman-portfolio.html', '_blank')">
     <div class="avatar">E</div>
     <h3>Eman Iftikhar Ahmed</h3>
@@ -37,6 +38,7 @@
             <div class="avatar">M</div>
             <h3>Mahnoor Zahid</h3>
             <p>Frontend Developer</p>
+        </div>
         </div>
     </div>
 </main>
