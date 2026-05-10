@@ -9,9 +9,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-function e($str){
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+// Only define e() if it doesn't already exist
+if (!function_exists('e')) {
+    function e($str){
+        return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+    }
 }
 ?>
-
-
