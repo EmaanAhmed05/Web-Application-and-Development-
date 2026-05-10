@@ -6,7 +6,7 @@ function toggleDark() {
     
     const btns = document.querySelectorAll('.dark-mode-btn');
     btns.forEach(btn => {
-        btn.innerHTML = isDark ? 'Light Mode' : 'Dark Mode';
+        btn.innerHTML = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     });
 }
 
@@ -16,7 +16,7 @@ function loadDarkMode() {
         document.body.classList.add('dark-mode');
         const btns = document.querySelectorAll('.dark-mode-btn');
         btns.forEach(btn => {
-            btn.innerHTML = 'Light Mode';
+            btn.innerHTML = '☀️ Light Mode';
         });
     }
 }
